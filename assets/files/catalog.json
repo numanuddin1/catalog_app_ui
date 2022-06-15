@@ -1,0 +1,68 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "iPhone 12 Pro",
+      "desc": "Apple iPhone 12th generation",
+      "price": 999,
+      "color": "#33505a",
+      "image": "https://pngimg.com/uploads/iphone_12/iphone_12_PNG13.png"
+    },
+    {
+      "id": 2,
+      "name": "Pixel 5",
+      "desc": "Google Pixel phone 5th generation",
+      "price": 699,
+      "color": "#00ac51",
+      "image": "https://directmobileaccessories.com/media/catalog/product/cache/1/image/500x/9df78eab33525d08d6e5fb8d27136e95/g/o/google_pixel_5.jpg"
+    },
+    {
+      "id": 3,
+      "name": "M1 Macbook Air",
+      "desc": "Apple Macbook air with apple silicon",
+      "price": 1099,
+      "color": "#e0bfae",
+      "image": "https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP825/macbookair.png"
+    },
+    {
+      "id": 4,
+      "name": "Playstation 5",
+      "desc": "Sony Playstation 5th generation",
+      "price": 500,
+      "color": "#544ee4",
+      "image": "https://games4u.pk/wp-content/uploads/2021/06/Sony-PlayStation-5-Disc-Edition.png"
+    },
+    {
+      "id": 5,
+      "name": "Airpods Pro",
+      "desc": "Apple Aipods Pro 1st generation",
+      "price": 200,
+      "color": "#e3e4e9",
+      "image": "https://help.apple.com/assets/61AFEC45FA5233173908347B/61B0509E1BF38548362237B5/en_US/c912c4fd07b416b344880eb9fc265828.png"
+    },
+    {
+      "id": 6,
+      "name": "iPad Pro",
+      "desc": "Apple iPad Pro 2020 edition",
+      "price": 799,
+      "color": "#f73984",
+      "image": "http://assets.stickpng.com/images/61d4a70f8b51e20004664d4d.png"
+    },
+    {
+      "id": 7,
+      "name": "Galaxy S21 Ultra",
+      "desc": "Samsung Galaxy S21 Ultra 2021 edition",
+      "price": 1299,
+      "color": "#1c1c1c",
+      "image": "http://assets.stickpng.com/images/61d4a9d88b51e20004664d51.png"
+    },
+    {
+      "id": 8,
+      "name": "Galaxy S21",
+      "desc": "Samsung Galaxy S21 2021 edition",
+      "price": 899,
+      "color": "#7c95eb",
+      "image": "https://images.samsung.com/is/image/samsung/p6pim/pk/galaxy-s21/gallery/pk-galaxy-s21-5g-g991-366070-sm-g991bzagmea-362622379"
+    }
+  ]
+}
