@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Practice 4',
       color: Colors.white,
       theme: MyTheme().lightTheme(context),
-      initialRoute: MyRoutes.homeRoute,
+      initialRoute: MyRoutes.loginRoute,
       debugShowCheckedModeBanner: false,
       routes: {
         MyRoutes.loginRoute: (context) => LoginScreen(),

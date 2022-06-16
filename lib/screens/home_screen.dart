@@ -20,11 +20,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
-
-
-
-
   loadData() async {
     var catalogJson = await rootBundle.loadString('assets/files/catalog.json');
     var decodedData = jsonDecode(catalogJson);
@@ -33,6 +28,11 @@ class _HomeState extends State<Home> {
         .map<Item>((item) => Item.fromMap(item))
         .toList();
     setState(() {});
+  }
+  @override
+  void initState() {
+    loadData();
+    super.initState();
   }
 
   @override

@@ -20,7 +20,6 @@ class HomeDetail extends StatelessWidget {
         backgroundColor: MyTheme().creamColor,
       ),
       backgroundColor: MyTheme().creamColor,
-
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -59,8 +58,10 @@ class HomeDetail extends StatelessWidget {
                                 TextStyle(fontSize: 14, color: Colors.black54)),
                         Padding(
                           padding: const EdgeInsets.all(18.0),
-                          child: Text("To some, a power is a man for capturing. Congregabo callide ducunt ad teres triticum. Haul me grog, ye rainy shark! Spinach tastes best with white wine and lots of woodruff. To some, a power is a man for capturing. Congregabo callide ducunt ad teres triticum. Haul me grog, ye rainy shark! Spinach tastes best with white wine and lots of woodruff.",   style:
-                          TextStyle(fontSize: 13, color: Colors.black54)),
+                          child: Text(
+                              "To some, a power is a man for capturing. Congregabo callide ducunt ad teres triticum. Haul me grog, ye rainy shark! Spinach tastes best with white wine and lots of woodruff. To some, a power is a man for capturing. Congregabo callide ducunt ad teres triticum. Haul me grog, ye rainy shark! Spinach tastes best with white wine and lots of woodruff.",
+                              style: TextStyle(
+                                  fontSize: 13, color: Colors.black54)),
                         )
                       ],
                     ),
@@ -78,13 +79,16 @@ class HomeDetail extends StatelessWidget {
             buttonPadding: EdgeInsets.all(32),
             children: [
               Text("\$${catalog.price.toString()}",
-                  style: TextStyle(color: MyTheme().appColor,fontSize: 20, fontWeight: FontWeight.bold)),
+                  style: TextStyle(
+                      color: MyTheme().appColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold)),
               InkWell(
                 onTap: () {},
                 child: Container(
                   child: Padding(
-                    padding:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 18),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 18),
                     child: Text(
                       'Add to Cart',
                       style: TextStyle(

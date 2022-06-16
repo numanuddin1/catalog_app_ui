@@ -55,53 +55,59 @@ class _LoginScreenState extends State<LoginScreen> {
                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                  ),
                  SizedBox(
-                   height: 20,
+                   height: 42,
                  ),
                  Padding(
                    padding: const EdgeInsets.symmetric(horizontal: 40.0),
                    child: Column(
                      children: [
-                       TextFormField(
-                         keyboardType: TextInputType.emailAddress,
-                         decoration: InputDecoration(
-                           hintText: 'Enter Username',
-                           label: Text(
-                             "Username",
-                             style: TextStyle(fontSize: 18),
-                           ),
-                           prefixIcon: Icon(Icons.email_outlined),
-                         ),
-                         validator: (value) {
-                           if (value!.isEmpty) {
-                             return 'Can\'t be empty';
-                           }
-                           return null;
-                         },
-                         onChanged: (value) {
-                           name = value;
-                           setState(() {});
-                         },
-                       ),
                        SizedBox(
-                         height: 10,
-                       ),
-                       TextFormField(
-                         keyboardType: TextInputType.visiblePassword,
-                         obscureText: true,
-                         decoration: InputDecoration(
-                           hintText: 'Enter password',
-                           label: Text(
-                             "Password",
-                             style: TextStyle(fontSize: 18),
+                         height: 58,
+                         child: TextFormField(
+                           keyboardType: TextInputType.emailAddress,
+                           decoration: InputDecoration(
+                             border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
+                             hintText: 'Enter Username',
+                             label: Text(
+                               "Username",
+                               style: TextStyle(fontSize: 18),
+                             ),
+                             prefixIcon: Icon(Icons.email_outlined),
                            ),
-                           prefixIcon: Icon(Icons.password),
+                           validator: (value) {
+                             if (value!.isEmpty) {
+                               return 'Can\'t be empty';
+                             }
+                             return null;
+                           },
+                           onChanged: (value) {
+                             name = value;
+                             setState(() {});
+                           },
                          ),
-                         validator: (value) {
-                           if (value!.isEmpty) {
-                             return 'Can\'t be empty';
-                           }
-                           return null;
-                         },
+                       ),
+                       SizedBox(height: 18,),
+                       SizedBox(
+                         height: 58,
+                         child: TextFormField(
+                           keyboardType: TextInputType.visiblePassword,
+                           obscureText: true,
+                           decoration: InputDecoration(
+                             border: OutlineInputBorder(borderRadius: BorderRadius.circular(25),),
+                             hintText: 'Enter password',
+                             label: Text(
+                               "Password",
+                               style: TextStyle(fontSize: 18),
+                             ),
+                             prefixIcon: Icon(Icons.password),
+                           ),
+                           validator: (value) {
+                             if (value!.isEmpty) {
+                               return 'Can\'t be empty';
+                             }
+                             return null;
+                           },
+                         ),
                        ),
                        SizedBox(
                          height: 30,
@@ -123,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                            ),
                            decoration: BoxDecoration(
                              borderRadius: BorderRadius.circular(
-                                 changeButton ? 50 : 7),
+                                 changeButton ? 53 : 7),
                              color: appColor,
                            ),
                            duration: Duration(milliseconds: 600),
