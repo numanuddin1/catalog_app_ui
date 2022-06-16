@@ -27,8 +27,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Practice 4',
-      color: Colors.white,
+      themeMode: ThemeMode.system,
       theme: MyTheme().lightTheme(context),
+      darkTheme: MyTheme().darkTheme(context),
       initialRoute: MyRoutes.loginRoute,
       debugShowCheckedModeBanner: false,
       routes: {

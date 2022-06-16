@@ -37,4 +37,5 @@ class Item {
 class CatalogModel {
   static List<Item> items = [
   ];
+
 }

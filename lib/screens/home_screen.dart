@@ -32,23 +32,26 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     loadData();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     super.initState();
   }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+        backgroundColor: Theme.of(context).buttonColor,
         child: Icon(CupertinoIcons.cart, color: Colors.white,),
       ),
-      backgroundColor: MyTheme().creamColor,
+      backgroundColor: Theme.of(context).canvasColor,
 
       body: SafeArea(
         bottom: false,
         child: Container(
           padding: EdgeInsets.all(28),
-          margin: EdgeInsets.only(bottom: 50),
+          margin: EdgeInsets.only(bottom: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
