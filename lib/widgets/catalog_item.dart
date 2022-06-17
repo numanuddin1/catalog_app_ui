@@ -42,31 +42,18 @@ class _CatalogItemState extends State<CatalogItem> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-        onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => HomeDetail(catalog: widget.catalog),
-            )),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: Theme.of(context).cardColor,
-          ),
-          padding: EdgeInsets.all(10),
-          child: Row(
-            children: [
+    var children2 = [
               Hero(
                 tag: Key(widget.catalog.id.toString()),
                 child: Container(
-                  width: context.percentWidth * 30,
-                  height: 150,
+                  width: context.isMobile? context.percentWidth * 30 : context.percentWidth * 40,
+                  height: context.isMobile? context.percentHeight * 20: context.percentHeight * 30,
                   padding: EdgeInsets.all(04),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Theme.of(context).canvasColor,
                   ),
-                  child: Image.network(widget.catalog.image),
+                  child: Image.network(widget.catalog.image,),
                 ),
               ),
               Expanded(
@@ -108,10 +95,25 @@ class _CatalogItemState extends State<CatalogItem> {
                   ],
                 ),
               ))
-            ],
+            ];
+    return InkWell(
+        onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomeDetail(catalog: widget.catalog),
+            )),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            color: Theme.of(context).cardColor,
           ),
-          height: 150,
-          width: 100,
+          padding: EdgeInsets.all(10),
+          child: context.isMobile? Row(
+            children: children2,
+          ): Column(
+            children: children2,
+          ),
+          height: context.isMobile? context.percentHeight * 20 : context.percentHeight * 100,
         ));
   }
 }
