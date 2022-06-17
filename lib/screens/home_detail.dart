@@ -120,3 +120,4 @@ class _HomeDetailState extends State<HomeDetail> {
     );
   }
 }
+

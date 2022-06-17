@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         MyRoutes.loginRoute: (context) => LoginScreen(),
         MyRoutes.homeRoute: (context) => Home(),
-        MyRoutes.cartRoute: (context) => CartSreen(),
+     //   MyRoutes.cartRoute: (context) => CartSreen(),
       },
     );
   }

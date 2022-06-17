@@ -1,15 +1,44 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
+import '../models/cart.dart';
 import '../models/catalog.dart';
 import '../screens/home_detail.dart';
 import '../utils/themes.dart';
 
-class CatalogItem extends StatelessWidget {
+class CatalogItem extends StatefulWidget {
   final Item catalog;
-
   const CatalogItem({required this.catalog, Key? key}) : super(key: key);
+
+  @override
+  State<CatalogItem> createState() => _CatalogItemState();
+}
+
+class _CatalogItemState extends State<CatalogItem> {
+  MediaQueryData get mq => MediaQuery.of(context);
+
+  /// Get MediaQuery Screen Size
+  Size get screenSize => mq.size;
+
+  /// Get MediaQuery Screen Density
+  double get screenDensity => mq.devicePixelRatio;
+
+  /// Get MediaQuery Screen Padding
+  EdgeInsets get screenPadding => mq.padding;
+
+  /// Get MediaQuery Screen Width
+  double get screenWidth => mq.size.width;
+
+  /// Get MediaQuery Screen Height
+  double get screenHeight => mq.size.height;
+
+  /// Get MediaQuery Screen Width in percentage
+  double get percentWidth => screenWidth / 100;
+
+  /// Get MediaQuery Screen height in percentage
+  double get percentHeight => screenHeight / 100;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +46,7 @@ class CatalogItem extends StatelessWidget {
         onTap: () => Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => HomeDetail(catalog: catalog),
+              builder: (context) => HomeDetail(catalog: widget.catalog),
             )),
         child: Container(
           decoration: BoxDecoration(
@@ -28,16 +57,16 @@ class CatalogItem extends StatelessWidget {
           child: Row(
             children: [
               Hero(
-                tag: Key(catalog.id.toString()),
+                tag: Key(widget.catalog.id.toString()),
                 child: Container(
-                  width: 120,
+                  width: context.percentWidth * 30,
                   height: 150,
                   padding: EdgeInsets.all(04),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Theme.of(context).canvasColor,
                   ),
-                  child: Image.network(catalog.image),
+                  child: Image.network(widget.catalog.image),
                 ),
               ),
               Expanded(
@@ -48,11 +77,11 @@ class CatalogItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      catalog.name,
+                      widget.catalog.name,
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                     ),
-                    Text(catalog.desc,
+                    Text(widget.catalog.desc,
                         style: TextStyle(fontSize: 12, color: Theme.of(context).accentColor.withOpacity(0.8))),
                     SizedBox(
                       height: 16,
@@ -61,29 +90,10 @@ class CatalogItem extends StatelessWidget {
                       alignment: MainAxisAlignment.spaceBetween,
                       buttonPadding: EdgeInsets.zero,
                       children: [
-                        Text("\$${catalog.price.toString()}",
+                        Text("\$${widget.catalog.price.toString()}",
                             style: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold)),
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            child: Padding(
-                              padding:  EdgeInsets.symmetric(
-                                  vertical: 4.0, horizontal: 9),
-                              child: Text(
-                                'Add to Cart',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12),
-                              ),
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(18),
-                              color: Theme.of(context).buttonColor,
-                            ),
-                          ),
-                        ),
+                        _AddCart(catalog: widget.catalog,),
                         // ElevatedButton(
                         //   onPressed: () {},
                         //   child: Text("Add to Cart"),
@@ -103,5 +113,51 @@ class CatalogItem extends StatelessWidget {
           height: 150,
           width: 100,
         ));
+  }
+}
+
+class _AddCart extends StatefulWidget {
+  final Item catalog;
+  const _AddCart({
+    Key? key, required this.catalog,
+  }) : super(key: key);
+
+  @override
+  State<_AddCart> createState() => _AddCartState();
+}
+
+class _AddCartState extends State<_AddCart> {
+  bool isAdded = false;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        final _catalogModel = CatalogModel();
+        final _cart = CartModel();
+        _cart.catalog = _catalogModel;
+        _cart.add(widget.catalog);
+        print(widget.catalog.name);
+        isAdded = isAdded.toggle();
+
+        setState((){});
+      },
+      child: Container(
+        child: Padding(
+          padding:  EdgeInsets.symmetric(
+              vertical: 4.0, horizontal: 9),
+          child: isAdded? Icon(Icons.done) : Text(
+            'Add to Cart',
+            style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+                fontSize: 12),
+          ),
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(18),
+          color: Theme.of(context).buttonColor,
+        ),
+      ),
+    );
   }
 }

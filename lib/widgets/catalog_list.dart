@@ -12,7 +12,7 @@ class CatalogList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) {
-        final catalog = CatalogModel.items[index];
+        final catalog = CatalogModel().getByPosition(index);
         return Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
           child: CatalogItem(catalog: catalog),
