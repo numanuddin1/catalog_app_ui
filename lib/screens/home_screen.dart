@@ -61,6 +61,7 @@ class _HomeState extends State<Home> {
               ),
               if(CatalogModel.items.isNotEmpty)
               Expanded(child: CatalogList())
+
               else
                 Expanded(child: Center(child: CircularProgressIndicator())),
             ],
