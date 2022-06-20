@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_practice4/screens/cart_screen.dart';
+import 'package:flutter_practice4/screens/practice.dart';
 import 'package:flutter_practice4/utils/routes.dart';
 import 'package:flutter_practice4/screens/home_screen.dart';
 import 'package:flutter_practice4/screens/login_screen.dart';
@@ -30,12 +31,13 @@ class _MyAppState extends State<MyApp> {
       themeMode: ThemeMode.system,
       theme: MyTheme().lightTheme(context),
       darkTheme: MyTheme().darkTheme(context),
-      initialRoute: MyRoutes.loginRoute,
+      initialRoute: MyRoutes.practiceRoute,
       debugShowCheckedModeBanner: false,
       routes: {
         MyRoutes.loginRoute: (context) => LoginScreen(),
         MyRoutes.homeRoute: (context) => Home(),
         MyRoutes.cartRoute: (context) => CartSreen(),
+        MyRoutes.practiceRoute: (context) => Practice(),
       },
     );
   }

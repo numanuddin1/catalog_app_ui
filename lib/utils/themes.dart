@@ -10,6 +10,7 @@ class MyTheme {
 
   //dark colors
   Color darkCanvasColor = Vx.gray900;
+  Color lightCanvasColor = Vx.gray700;
   Color darkGreenColor = Color(0xff399a5c);
   Color lightGreenColor = Color(0xFF45CE82);
 
