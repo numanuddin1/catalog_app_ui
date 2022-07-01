@@ -6,7 +6,7 @@ class MainDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Theme.of(context).accentColor,
+      backgroundColor: Theme.of(context).canvasColor,
       child: ListView(
         children: [
           DrawerHeader(

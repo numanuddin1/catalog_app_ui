@@ -8,9 +8,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_practice4/models/catalog.dart';
 import 'package:flutter_practice4/utils/routes.dart';
 import 'package:flutter_practice4/utils/themes.dart';
+import 'package:flutter_practice4/widgets/drawer_main.dart';
 
 import '../widgets/catalog_header.dart';
 import '../widgets/catalog_list.dart';
+import '../widgets/drawer_test.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -41,7 +43,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pushNamed(context, MyRoutes.practiceRoute),
+        onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
         backgroundColor: Theme.of(context).buttonColor,
         child: Icon(CupertinoIcons.cart, color: Colors.white,),
       ),
@@ -68,6 +70,7 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
+      drawer: MainDrawer(),
     );
   }
 }

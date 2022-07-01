@@ -17,6 +17,7 @@ class MyTheme {
   ThemeData lightTheme(BuildContext context) => ThemeData(
       fontFamily: GoogleFonts.poppins().fontFamily,
       primaryColor: appColor,
+      primarySwatch: Colors.amber,
       cardColor: Colors.white,
       canvasColor: creamColor,
       accentColor: Colors.black,

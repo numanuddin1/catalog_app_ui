@@ -7,10 +7,10 @@ import 'package:flutter_practice4/utils/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../models/catalog.dart';
+import '../widgets/add_to_cart.dart';
 
 class HomeDetail extends StatefulWidget {
   final Item catalog;
-
 
   const HomeDetail({Key? key, required this.catalog}) : super(key: key);
 
@@ -24,6 +24,7 @@ class _HomeDetailState extends State<HomeDetail> {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,14 +67,20 @@ class _HomeDetailState extends State<HomeDetail> {
                               fontWeight: FontWeight.bold, fontSize: 25),
                         ),
                         Text(widget.catalog.desc,
-                            style:
-                                TextStyle(fontSize: 14, color: Theme.of(context).accentColor.withOpacity(0.8))),
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Theme.of(context)
+                                    .accentColor
+                                    .withOpacity(0.8))),
                         Padding(
                           padding: const EdgeInsets.all(18.0),
                           child: Text(
                               "To some, a power is a man for capturing. Congregabo callide ducunt ad teres triticum. Haul me grog, ye rainy shark! Spinach tastes best with white wine and lots of woodruff. To some, a power is a man for capturing. Congregabo callide ducunt ad teres triticum. Haul me grog, ye rainy shark! Spinach tastes best with white wine and lots of woodruff.",
                               style: TextStyle(
-                                  fontSize: 13, color: Theme.of(context).accentColor.withOpacity(0.8))),
+                                  fontSize: 13,
+                                  color: Theme.of(context)
+                                      .accentColor
+                                      .withOpacity(0.8))),
                         )
                       ],
                     ),
@@ -95,29 +102,9 @@ class _HomeDetailState extends State<HomeDetail> {
                       color: MyTheme().appColor,
                       fontSize: 23,
                       fontWeight: FontWeight.bold)),
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10.0, horizontal: 20),
-                    child: Text(
-                      'Add to Cart',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 13),
-                    ),
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(18),
-                    color: Theme.of(context).buttonColor,
-                  ),
-                ),
-              ),
+              AddCart(catalog: widget.catalog,),
             ]),
       ),
     );
   }
 }
-

@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
       themeMode: ThemeMode.system,
       theme: MyTheme().lightTheme(context),
       darkTheme: MyTheme().darkTheme(context),
-      initialRoute: MyRoutes.practiceRoute,
+      initialRoute: MyRoutes.loginRoute,
       debugShowCheckedModeBanner: false,
       routes: {
         MyRoutes.loginRoute: (context) => LoginScreen(),

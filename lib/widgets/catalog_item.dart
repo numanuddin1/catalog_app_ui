@@ -7,6 +7,7 @@ import '../models/cart.dart';
 import '../models/catalog.dart';
 import '../screens/home_detail.dart';
 import '../utils/themes.dart';
+import 'add_to_cart.dart';
 
 class CatalogItem extends StatefulWidget {
   final Item catalog;
@@ -80,7 +81,7 @@ class _CatalogItemState extends State<CatalogItem> {
                         Text("\$${widget.catalog.price.toString()}",
                             style: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold)),
-                        _AddCart(catalog: widget.catalog,),
+                        AddCart(catalog: widget.catalog,),
                         // ElevatedButton(
                         //   onPressed: () {},
                         //   child: Text("Add to Cart"),
@@ -115,51 +116,5 @@ class _CatalogItemState extends State<CatalogItem> {
           ),
           height: context.isMobile? context.percentHeight * 20 : context.percentHeight * 100,
         ));
-  }
-}
-
-class _AddCart extends StatefulWidget {
-  final Item catalog;
-  const _AddCart({
-    Key? key, required this.catalog,
-  }) : super(key: key);
-
-  @override
-  State<_AddCart> createState() => _AddCartState();
-}
-
-class _AddCartState extends State<_AddCart> {
-  bool isAdded = false;
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        final _catalogModel = CatalogModel();
-        final _cart = CartModel();
-        _cart.catalog = _catalogModel;
-        _cart.add(widget.catalog);
-        print(widget.catalog.name);
-        isAdded = isAdded.toggle();
-
-        setState((){});
-      },
-      child: Container(
-        child: Padding(
-          padding:  EdgeInsets.symmetric(
-              vertical: 4.0, horizontal: 9),
-          child: isAdded? Icon(Icons.done) : Text(
-            'Add to Cart',
-            style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
-                fontSize: 12),
-          ),
-        ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(18),
-          color: Theme.of(context).buttonColor,
-        ),
-      ),
-    );
   }
 }
